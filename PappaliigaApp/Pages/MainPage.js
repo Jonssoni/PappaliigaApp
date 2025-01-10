@@ -4,8 +4,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { AuthContext } from '../Context/AuthContext';
 import styles from '../Styles/Mainstyle';
 
-export default function MainPage({ navigation }) {
+export default function MainPage({ navigation, route }) {
   const { currentUser, logout } = useContext(AuthContext); // Get currentUser data from context
+  const isGuest = route.params?.isGuest || false;
 
   if (!currentUser) {
     return (
@@ -23,7 +24,7 @@ export default function MainPage({ navigation }) {
   console.log("Current User Avatar:", currentUser.avatar);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Profile</Text>
+      <Text style={styles.username}>Hello, {currentUser.username}</Text>
 
       {/* Avatar */}
       <View style={styles.avatarContainer}>
@@ -35,10 +36,19 @@ export default function MainPage({ navigation }) {
       </View>
 
       {/* Username */}
-      <Text style={styles.username}>{currentUser.username}</Text>
+      
 
       {/* Button for other actions like editing profile */}
-      <Button title="Edit Profile" onPress={() => { /* Handle Edit Profile */ }} />
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ProfilePage")}>
+  <Text style={styles.buttonText}>Profile</Text>
+</TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => alert("Edit profile")}>
+        <Text style={styles.buttonText}>Organisation</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => alert("Edit profile")}>
+        <Text style={styles.buttonText}>Matches</Text>
+      </TouchableOpacity>
 
       {/* You can add more profile-related info or buttons here */}
       <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>

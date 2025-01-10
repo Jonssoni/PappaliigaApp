@@ -10,7 +10,7 @@ export default StyleSheet.create({
     backgroundColor: '#181430',
   },
   input: {
-    width: "90%",
+    width: "100%",
     padding: 10,
     marginVertical: 10,
     borderWidth: 1,
@@ -34,7 +34,7 @@ export default StyleSheet.create({
     padding: 10,
     marginVertical: 10,
     borderRadius: 5,
-    width: '60%',
+    width: '100%',
     alignItems: 'center',
   },
   buttonText: {

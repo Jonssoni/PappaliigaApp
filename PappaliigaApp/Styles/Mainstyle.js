@@ -40,4 +40,12 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  button: {
+    padding: 15,
+    backgroundColor: '#fff', // Bootstrap success green
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+    width: '80%',
+  },
 });

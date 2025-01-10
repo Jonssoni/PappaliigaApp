@@ -2,9 +2,11 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"; // Import bottom tabs
+//PAGES
 import LoginPage from "./Pages/LoginPage";
 import MainPage from "./Pages/MainPage";
 import RegisterPage from "./Pages/RegisterPage";
+import ProfilePage from "./Pages/ProfilePage";
 import { AuthProvider } from "./Context/AuthContext";
 import { Ionicons } from "@expo/vector-icons"; // For using icons in tabs
 
@@ -48,13 +50,17 @@ export default function App() {
           <Stack.Screen
            name="Register"
             component={RegisterPage}
-            options={{ headerShown: false }}
+            options={{ title: "Register" }}
             />
           <Stack.Screen
             name="Main"
             component={MainPage} // Using the TabNavigator here
-            options={{ headerShown: false }} // Hide header for bottom tab screens
+            options={{ title: "Main" }} // Hide header for bottom tab screens
           />
+          <Stack.Screen
+            name="ProfilePage"
+            component={ProfilePage}
+            options={{ title: "Profile" }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>

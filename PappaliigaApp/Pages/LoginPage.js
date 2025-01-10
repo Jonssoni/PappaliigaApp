@@ -3,8 +3,6 @@ import { View, Text, TextInput, Button, Image, TouchableOpacity } from "react-na
 import styles from "../Styles/Loginstyles";
 import { AuthContext } from "../Context/AuthContext";
 
-
-
 export default function LoginPage({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +15,10 @@ export default function LoginPage({ navigation }) {
     } else {
       alert(result.message);
     }
+  };
+
+  const handleGuestLogin = () => {
+    navigation.navigate("Main", { isGuest: true }); // Pass a parameter to indicate guest mode
   };
 
   return (
@@ -42,7 +44,9 @@ export default function LoginPage({ navigation }) {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Register")}>
         <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Main")}/>
+      <TouchableOpacity style={[styles.button, styles.guestButton]} onPress={handleGuestLogin}>
+        <Text style={styles.buttonText}>Continue as Guest</Text>
+      </TouchableOpacity>
     </View>
   );
 }
