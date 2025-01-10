@@ -17,8 +17,8 @@ export default StyleSheet.create({
     borderColor: "#ccc",
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 300,
+    height: 350,
     marginBottom: 20,
   },
 });
