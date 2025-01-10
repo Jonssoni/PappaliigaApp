@@ -7,14 +7,14 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null); // Store the logged-in user
 
   // Register function
-  const register = (username, password) => {
+  const register = (username, password, avatar = null) => {
     const existingUser = users.find((user) => user.username === username);
     if (existingUser) {
       return { success: false, message: "Username already exists!" };
     }
-
-    const newUser = { username, password, avatar: null }; // Default avatar is null
-    setUsers([...users, newUser]); // Add new user to the list
+  
+    const newUser = { username, password, avatar }; // Set avatar during registration
+    setUsers([...users, newUser]);
     return { success: true };
   };
 
@@ -45,6 +45,7 @@ export const AuthProvider = ({ children }) => {
           user.username === currentUser.username ? updatedUser : user
         )
       );
+      console.log("Avatar Updated to:", avatarUri); // Debug log
     }
   };
 

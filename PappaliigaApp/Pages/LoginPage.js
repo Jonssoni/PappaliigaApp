@@ -1,7 +1,9 @@
 import React, { useState, useContext } from "react";
-import { View, Text, TextInput, Button, Image } from "react-native";
+import { View, Text, TextInput, Button, Image, TouchableOpacity } from "react-native";
 import styles from "../Styles/Loginstyles";
 import { AuthContext } from "../Context/AuthContext";
+
+
 
 export default function LoginPage({ navigation }) {
   const [username, setUsername] = useState("");
@@ -34,11 +36,13 @@ export default function LoginPage({ navigation }) {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="Login" onPress={handleLogin} />
-      <Button
-        title="Register"
-        onPress={() => navigation.navigate("Register")}
-      />
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Register")}>
+        <Text style={styles.buttonText}>Register</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Main")}/>
     </View>
   );
 }

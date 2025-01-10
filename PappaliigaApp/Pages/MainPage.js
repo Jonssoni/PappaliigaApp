@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { View, Text, Image, Button, StyleSheet } from 'react-native';
+import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { AuthContext } from '../Context/AuthContext';
+import styles from '../Styles/Mainstyle';
 
 export default function MainPage({ navigation }) {
-  const { currentUser } = useContext(AuthContext); // Get currentUser data from context
+  const { currentUser, logout } = useContext(AuthContext); // Get currentUser data from context
 
   if (!currentUser) {
     return (
@@ -14,6 +15,12 @@ export default function MainPage({ navigation }) {
     );
   }
 
+  const handleLogout = () => {
+    logout();
+    navigation.replace("Login"); // Navigate back to Login screen
+  };
+
+  console.log("Current User Avatar:", currentUser.avatar);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Profile</Text>
@@ -34,33 +41,10 @@ export default function MainPage({ navigation }) {
       <Button title="Edit Profile" onPress={() => { /* Handle Edit Profile */ }} />
 
       {/* You can add more profile-related info or buttons here */}
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <Text style={styles.logoutButtonText}>Logout</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  avatarContainer: {
-    marginBottom: 20,
-  },
-  avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-  },
-  username: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-});

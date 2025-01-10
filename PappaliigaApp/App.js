@@ -40,11 +40,19 @@ export default function App() {
     <AuthProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Login" component={LoginPage} />
-          <Stack.Screen name="Register" component={RegisterPage} />
+          <Stack.Screen 
+          name="Login"
+          component={LoginPage}
+          options={{ headerShown: false }}
+          />
+          <Stack.Screen
+           name="Register"
+            component={RegisterPage}
+            options={{ headerShown: false }}
+            />
           <Stack.Screen
             name="Main"
-            component={TabNavigator} // Using the TabNavigator here
+            component={MainPage} // Using the TabNavigator here
             options={{ headerShown: false }} // Hide header for bottom tab screens
           />
         </Stack.Navigator>

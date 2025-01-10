@@ -6,11 +6,13 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+     backgroundColor: '#181430',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#fff',
   },
   input: {
     width: '100%',
@@ -19,6 +21,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     marginBottom: 15,
     paddingLeft: 10,
+    backgroundColor: '#fff',
   },
   avatarContainer: {
     marginBottom: 20,
@@ -36,5 +39,17 @@ export default StyleSheet.create({
     borderRadius: 50,
     backgroundColor: '#ccc',
     marginBottom: 10,
+  },
+  button: {
+    backgroundColor: '#007BFF',
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 5,
+    width: '100%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
   },
 });
