@@ -7,8 +7,12 @@ import LoginPage from "./Pages/LoginPage";
 import MainPage from "./Pages/MainPage";
 import RegisterPage from "./Pages/RegisterPage";
 import ProfilePage from "./Pages/ProfilePage";
+import OrganisationPage from "./Pages/OrganisationPage";
+import CreateOrganisation from "./Pages/CreateOrganisationPage";
+//CONTEXT
 import { AuthProvider } from "./Context/AuthContext";
 import { Ionicons } from "@expo/vector-icons"; // For using icons in tabs
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator(); // Bottom tab navigator
@@ -61,6 +65,16 @@ export default function App() {
             name="ProfilePage"
             component={ProfilePage}
             options={{ title: "Profile" }}/>
+          <Stack.Screen
+          name="OrganisationPage"
+          component={OrganisationPage}
+          options={{ title: "Organisation" }}
+          />
+          <Stack.Screen
+          name="CreateOrganisation"
+          component={CreateOrganisation}
+          options={{ title: "Create Organisation" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>

@@ -43,7 +43,7 @@ export default function MainPage({ navigation, route }) {
   <Text style={styles.buttonText}>Profile</Text>
 </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => alert("Edit profile")}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("OrganisationPage")}>  
         <Text style={styles.buttonText}>Organisation</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => alert("Edit profile")}>

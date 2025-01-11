@@ -8,6 +8,7 @@ export default StyleSheet.create({
     alignItems: "center",
     padding: 20,
     backgroundColor: '#181430',
+    marginTop: 30,
   },
   input: {
     width: "100%",
