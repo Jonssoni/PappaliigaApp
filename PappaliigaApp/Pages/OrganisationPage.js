@@ -41,7 +41,7 @@ export default function OrganisationPage({ navigation }) {
           <Text style={styles.noTeamsText}>You are not in any teams.</Text>
         )}
         <TouchableOpacity style={styles.button} onPress={handleCreateOrganisation}>
-          <Text style={styles.buttonText}>Create New Organisation</Text>
+          <Text style={styles.buttonText}>Create New Organization</Text>
         </TouchableOpacity>
       </View>
     );

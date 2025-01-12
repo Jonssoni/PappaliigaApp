@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { AuthContext } from '../Context/AuthContext';
 import styles from '../Styles/Mainstyle';
@@ -22,8 +22,10 @@ export default function MainPage({ navigation, route }) {
   };
 
   console.log("Current User Avatar:", currentUser.avatar);
+
   return (
     <View style={styles.container}>
+      {/* User Greeting */}
       <Text style={styles.username}>Hello, {currentUser.username}</Text>
 
       {/* Avatar */}
@@ -35,26 +37,37 @@ export default function MainPage({ navigation, route }) {
         )}
       </View>
 
-      {/* Username */}
+      {/* Teams List */}
+      <View style={styles.textcontainer}>
+        <Text style={styles.teamsHeader}>Your Teams:</Text>
+        {currentUser.teams.length > 0 ? (
+          <FlatList
+            data={currentUser.teams}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <View style={styles.teamItem}>
+                <Text style={styles.teamName}>{item.name}</Text>
+              </View>
+            )}
+          />
+        ) : (
+          <Text style={styles.noTeamsText}>You don't have any teams yet.</Text>
+        )}
+      </View>
       
-
-      {/* Button for other actions like editing profile */}
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ProfilePage")}>
-  <Text style={styles.buttonText}>Profile</Text>
-</TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("OrganisationPage")}>  
-        <Text style={styles.buttonText}>Organisation</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => alert("Edit profile")}>
-        <Text style={styles.buttonText}>Matches</Text>
-      </TouchableOpacity>
-
-      {/* You can add more profile-related info or buttons here */}
-      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-        <Text style={styles.logoutButtonText}>Logout</Text>
-      </TouchableOpacity>
+      {/* Logout Button */}
+      {!isGuest && (
+        <View style={styles.logoutContainer}>
+          <Text style={styles.logoutText}>You are logged in as a user.</Text>
+          <Text style={styles.logoutText}>You can logout below.</Text>
+          <Ionicons
+            name="log-out-outline"
+            size={28}
+            color="tomato"
+            onPress={handleLogout}
+          />
+        </View>
+      )}
     </View>
   );
 }
-
