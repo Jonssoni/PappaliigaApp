@@ -9,6 +9,7 @@ import RegisterPage from "./Pages/RegisterPage";
 import ProfilePage from "./Pages/ProfilePage";
 import OrganisationPage from "./Pages/OrganisationPage";
 import CreateOrganisation from "./Pages/CreateOrganisationPage";
+import TeamPage from "./Pages/TeamPage";
 //CONTEXT
 import { AuthProvider } from "./Context/AuthContext";
 import { Ionicons } from "@expo/vector-icons"; // For using icons in tabs
@@ -74,6 +75,11 @@ export default function App() {
           name="CreateOrganisation"
           component={CreateOrganisation}
           options={{ title: "Create Organisation" }}
+          />
+          <Stack.Screen
+          name="TeamPage"
+          component={TeamPage}
+          options={{ title: "Team" }}
           />
         </Stack.Navigator>
       </NavigationContainer>

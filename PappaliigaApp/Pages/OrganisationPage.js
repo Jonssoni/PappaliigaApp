@@ -7,19 +7,25 @@ export default function OrganisationPage({ navigation }) {
     const { currentUser } = useContext(AuthContext);
   
     const teams = currentUser?.teams || [];
-  
+   
+    const handleTeamPress = (team) => {
+      navigation.navigate("TeamPage", { team });
+    };
+
     const renderTeam = ({ item }) => (
-        
-      <View style={styles.teamItem}>
-        <Text style={styles.teamName}>{item.name}</Text>
-        <Text style={styles.teamGame}>{item.game}</Text>
-      </View>
-    );
+      <TouchableOpacity
+      style={styles.teamItem}
+      onPress={() => handleTeamPress(item)}
+    >
+      <Text style={styles.teamName}>{item.name}</Text>
+      <Text style={styles.teamGame}>{item.game}</Text>
+    </TouchableOpacity>
+  );
   
     const handleCreateOrganisation = () => {
       navigation.navigate('CreateOrganisation');
     };
-
+    
     
   
     return (
@@ -27,10 +33,10 @@ export default function OrganisationPage({ navigation }) {
         <Text style={styles.title}>My Teams</Text>
         {teams.length > 0 ? (
           <FlatList
-            data={teams}    
-            renderItem={renderTeam}
-            keyExtractor={(item) => item.id.toString()}
-          />
+          data={teams}
+          renderItem={renderTeam}
+          keyExtractor={(item) => item.id.toString()}
+        />
         ) : (
           <Text style={styles.noTeamsText}>You are not in any teams.</Text>
         )}
