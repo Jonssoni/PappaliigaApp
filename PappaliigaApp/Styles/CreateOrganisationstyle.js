@@ -5,12 +5,14 @@ export default StyleSheet.create({
         flex: 1,
         padding: 16,
         justifyContent: 'center',
+        backgroundColor: '#181430',
       },
       title: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
         textAlign: 'center',
+        color: '#fff',
       },
       input: {
         width: '100%',
@@ -19,19 +21,26 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderColor: '#ccc',
         borderRadius: 5,
+        backgroundColor: '#fff',
+
       },
       label: {
         fontSize: 16,
         marginVertical: 10,
+        color: '#fff',
       },
       picker: {
         height: 60,
         width: '100%',
         marginBottom: 20,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        backgroundColor: '#fff',
       },
       avatarContainer: {
         alignItems: 'center',
         marginBottom: 20,
+
       },
       avatar: {
         width: 100,

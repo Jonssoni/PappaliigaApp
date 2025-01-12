@@ -4,24 +4,31 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor: '#181430',
+
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    color: '#fff',
   },
   teamItem: {
     padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+
   },
   teamName: {
     fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
   },
   teamGame: {
-    fontSize: 14,
+    fontSize: 16,
     color: 'gray',
+
   },
   noTeamsText: {
     textAlign: 'center',

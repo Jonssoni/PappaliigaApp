@@ -20,9 +20,10 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
   },
   logo: {
-    width: 360,
-    height: 400,
-    marginBottom: 20,
+    width: 340,
+    height: 380,
+    marginBottom: 35,
+    borderRadius: 30,
   },
   title: {
     fontSize: 24,

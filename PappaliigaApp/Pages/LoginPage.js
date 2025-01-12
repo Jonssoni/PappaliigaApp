@@ -24,7 +24,6 @@ export default function LoginPage({ navigation }) {
   return (
     <View style={styles.container}>
       <Image source={require("../Images/logo.png")} style={styles.logo} />
-      <Text style={styles.title}>Login</Text>
       <TextInput
         placeholder="Username"
         style={styles.input}
@@ -43,9 +42,6 @@ export default function LoginPage({ navigation }) {
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Register")}>
         <Text style={styles.buttonText}>Register</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, styles.guestButton]} onPress={handleGuestLogin}>
-        <Text style={styles.buttonText}>Continue as Guest</Text>
       </TouchableOpacity>
     </View>
   );
