@@ -37,35 +37,21 @@ export default function MainPage({ navigation, route }) {
         )}
       </View>
 
-      {/* Teams List */}
-      <View style={styles.textcontainer}>
-        <Text style={styles.teamsHeader}>Your Teams:</Text>
-        {currentUser.teams.length > 0 ? (
-          <FlatList
-            data={currentUser.teams}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
-              <View style={styles.teamItem}>
-                <Text style={styles.teamName}>{item.name}</Text>
-              </View>
-            )}
-          />
-        ) : (
-          <Text style={styles.noTeamsText}>You don't have any teams yet.</Text>
-        )}
-      </View>
+    
       
       {/* Logout Button */}
       {!isGuest && (
         <View style={styles.logoutContainer}>
-          <Text style={styles.logoutText}>You are logged in as a user.</Text>
-          <Text style={styles.logoutText}>You can logout below.</Text>
+        
           <Ionicons
             name="log-out-outline"
             size={28}
             color="tomato"
             onPress={handleLogout}
           />
+          <Text style={styles.logoutText} onPress={handleLogout}>
+            Logout
+          </Text>
         </View>
       )}
     </View>

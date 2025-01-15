@@ -26,7 +26,15 @@ export default StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
-    marginTop: 10,
+   
+  },
+  logoutContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    bottom: 0,
+
+  
   },
   username: {
     fontSize: 20,
